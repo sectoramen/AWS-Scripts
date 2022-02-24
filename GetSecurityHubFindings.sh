@@ -54,20 +54,30 @@ done
 findings=$(wc -l < ./SchemaVersion| tr -d ' ')
 echo -e "\nThere are $findings findings to process"
 
-# We only use files that have as many lines as there are findings
+# We only use files that have as many lines as there are findings. Also, do not use files with Timestamps and the FindingID
+# Timestamps and the FindingID columns result in large output with duplicate entries because the same findings may have been 
+# reported multiple times and each time reported will have a different timestamp and FindingID, which squeues data analysis
+
+# This columns will be removed from the final output.
+# CreatedAt FirstObservedAt LastObservedAt UpdatedAt Id 
+# SchemaVersion
+
 paste=""
 cp AwsAccountId ../myfile.old
 echo -e "\nGenerating columns from paths ..."
 for file in $(ls)                             
 do
     filelines=$(wc -l < ./$file| tr -d ' ')
-    if [ $filelines == $findings ] && [ $file != "AwsAccountId" ]; then
+    if [ $filelines == $findings ] && [ $file != "AwsAccountId" ] && ([ $file != "CreatedAt" ] && [ $file != "FirstObservedAt" ] && [ $file != "LastObservedAt" ] && [ $file != "UpdatedAt" ] && [ $file != "Id" ] && [ $file != "SchemaVersion" ]); then
+#     || [ $file != "FirstObservedAt" ] || [ $file != "LastObservedAt" ] ||  $file != "UpdatedAt" ] || [ $file != "Id" ] || [ $file != "SchemaVersion" ]); then
         echo "Adding $file column"
         paste ../myfile.old $file > ../myfile.txt
         cp ../myfile.txt ../myfile.old
     fi
 done
 
+# Sort and remove duplicate lines. Using reverse -r sort to keep headers on top.
+cat ../myfile.old | sort -ru > ../myfile.txt
 # Cleanup#
 
 echo -e "\nCleaning up and removing temp files ..."
