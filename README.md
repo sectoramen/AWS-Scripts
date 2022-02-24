@@ -1,4 +1,4 @@
-# My CloudFormation Stacks
+# My AWS Scripts
 
 Automation makes life easier. Enjoy my cloudformation stacks!
 
