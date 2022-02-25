@@ -69,7 +69,6 @@ for file in $(ls)
 do
     filelines=$(wc -l < ./$file| tr -d ' ')
     if [ $filelines == $findings ] && [ $file != "AwsAccountId" ] && ([ $file != "CreatedAt" ] && [ $file != "FirstObservedAt" ] && [ $file != "LastObservedAt" ] && [ $file != "UpdatedAt" ] && [ $file != "Id" ] && [ $file != "SchemaVersion" ]); then
-#     || [ $file != "FirstObservedAt" ] || [ $file != "LastObservedAt" ] ||  $file != "UpdatedAt" ] || [ $file != "Id" ] || [ $file != "SchemaVersion" ]); then
         echo "Adding $file column"
         paste ../myfile.old $file > ../myfile.txt
         cp ../myfile.txt ../myfile.old
