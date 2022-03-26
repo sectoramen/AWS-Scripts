@@ -14,7 +14,7 @@ ROLEARN=arn:aws:iam::$ACCOUNT:role/$ROLE
 
 if ! TEMP_STS_ASSUMED=$(aws sts assume-role --role-arn $ROLEARN --role-session-name MYNewSessionRole)
 then
-    echo "Unable to asume role"
+    echo "Unable to assume role"
     exit 1
 fi
 
