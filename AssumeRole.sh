@@ -3,11 +3,12 @@
 if [[ $# -ne 2 ]]
     then
         echo Usage: $0 AWS_Account_Num Role_To_Assume
+        echo For example: $0 12345678912 MyReadOnlyRole
         exit 1
 fi
 
-ACCOUNT=$1 # The AWS Account Number
-ROLE=$2 # The Role to assume in a different AWS Account
+ACCOUNT=$1 # The AWS Account Number, i.e. 12345678912
+ROLE=$2 # The Role to assume in the AWS Account, i.e. MyReadOnlyRole
 
 ROLEARN=arn:aws:iam::$ACCOUNT:role/$ROLE
 
