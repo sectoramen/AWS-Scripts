@@ -2,7 +2,7 @@
 
 if [[ $# -ne 2 ]]
     then
-        echo Usage: $0 AWS_Account_Num Role_ToAssume
+        echo Usage: $0 AWS_Account_Num Role_To_Assume
         exit 1
 fi
 
