@@ -11,13 +11,6 @@ With proper access in place, this script provides you with the bash role credent
 ## GeneratePresignedURL
 
 Generates a presigned Amazon S3 URL that can be used to perform an action.
-
-  :param s3_client: A Boto3 Amazon S3 client.
-  :param client_method: The name of the client method that the URL performs.
-  :param method_parameters: The parameters of the specified client method.
-  :param expires_in: The number of seconds the presigned URL is valid for.
-  :return: The presigned URL.
-
 Usage: GeneratePresignedURL.py [-h] bucket key {get,put} expiration
 
 ## GetSecurityHubFindings
