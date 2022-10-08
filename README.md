@@ -11,6 +11,7 @@ With proper access in place, this script provides you with the bash role credent
 ## GeneratePresignedURL
 
 Generates a presigned Amazon S3 URL that can be used to perform an action.
+
 Usage: GeneratePresignedURL.py [-h] bucket key {get,put} expiration
 
 ## GetSecurityHubFindings
