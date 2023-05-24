@@ -17,3 +17,7 @@ Usage: GeneratePresignedURL.py [-h] bucket key {get,put} expiration
 ## GetSecurityHubFindings
 
 Export AWS SecurityHub findings into a tab delimited file that can be imported into Excel.
+
+## HardenAWS
+
+Delete inbound and outbound rules from default SGs and set a strong IAM password policy
