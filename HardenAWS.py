@@ -27,6 +27,7 @@ try:
         RequireUppercaseCharacters=True,
         RequireLowercaseCharacters=True,
         AllowUsersToChangePassword=True,
+        PasswordReusePrevention=24,
         MaxPasswordAge=90
         )
     print("Strong password policy configured")
